@@ -1,0 +1,16 @@
+[
+{
+  "modid": "aquaponics",
+  "name": "Aquaponics",
+  "description": "Fisheries, fish, and Bruce",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Laeneris"],
+  "credits": "The Forge and FML guys, McJty, and LatvianModder, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
