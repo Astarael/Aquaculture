@@ -46,7 +46,7 @@ public class CommonProxy {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         event.getRegistry().register(new Limestone());
         event.getRegistry().register(new LimeKiln());
-        event.getRegistry().register(new Ore_Titanium());
+        event.getRegistry().register(new Ore_Rutile());
         event.getRegistry().register(new Vat());
         GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ".limekiln"));
         //GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ".vat"));
@@ -62,15 +62,11 @@ public class CommonProxy {
         // ItemBlocks
         event.getRegistry().register(new ItemBlock(ModBlocks.limestone).setRegistryName(ModBlocks.limestone.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.vat).setRegistryName(ModBlocks.vat.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(ModBlocks.oretitanium).setRegistryName(ModBlocks.oretitanium.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.ore_rutile).setRegistryName(ModBlocks.ore_rutile.getRegistryName()));
+        System.out.println("ore rutile: " + ModBlocks.ore_rutile.getRegistryName());
         event.getRegistry().register(new ItemBlock(ModBlocks.limeKiln).setRegistryName(ModBlocks.limeKiln.getRegistryName()));
 
     }
-
-    /*@SubscribeEvent
-        public static void registerItems(ModelRegistryEvent event) {
-            ModItems.registerModels();
-        }*/
 }
 
 

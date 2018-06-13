@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "aquaponics:limestone"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}

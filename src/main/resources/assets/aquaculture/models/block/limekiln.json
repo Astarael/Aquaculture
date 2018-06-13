@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "aquaculture:blocks/limekiln",
+    "down": "aquaculture:blocks/limekiln_up",
+    "up": "aquaculture:blocks/limekiln_up",
+    "east": "aquaculture:blocks/limekiln",
+    "west": "aquaculture:blocks/limekiln",
+    "north": "aquaculture:blocks/limekiln",
+    "south": "aquaculture:blocks/limekiln"
+  }
+}

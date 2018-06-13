@@ -10,16 +10,16 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class Ore_Titanium extends Block {
+public class Ore_Rutile extends Block {
 
-    public Ore_Titanium() {
+    public Ore_Rutile() {
 
         super(Material.ROCK);
         setHardness(3f);
         setResistance(5f);
 
-        setUnlocalizedName(Aquaculture.MODID + ".ore_titanium");     // Used for localization (en_US.lang)
-        setRegistryName("ore_titanium");        // The unique name (within your mod) that identifies this block
+        setUnlocalizedName(Aquaculture.MODID + ".ore_rutile");
+        setRegistryName("ore_rutile");
 
     }
 

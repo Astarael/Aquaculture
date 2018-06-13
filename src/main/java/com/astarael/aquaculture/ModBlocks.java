@@ -17,15 +17,15 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("aquaculture:vat")
     public static Vat vat;
 
-    @GameRegistry.ObjectHolder("aquaculture:ore_titanium")
-    public static Ore_Titanium oretitanium;
+    @GameRegistry.ObjectHolder("aquaculture:ore_rutile")
+    public static Ore_Rutile ore_rutile;
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         limeKiln.initModel();
         limestone.initModel();
         vat.initModel();
-        oretitanium.initModel();
+        ore_rutile.initModel();
     }
 
 }
