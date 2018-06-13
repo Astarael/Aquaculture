@@ -1,0 +1,9 @@
+# Items
+item.ingot_titanium.name=Titanium Ingot
+item.burnt_brick.name=Burnt Brick
+
+# Blocks
+tile.aquaculture.ore_rutile.name=Rutile Ore
+tile.aquaculture.limestone.name=Limestone
+tile.aquaculture.limekiln.name=Lime Kiln Brick
+tile.aquaculture.vat.name=Vat
