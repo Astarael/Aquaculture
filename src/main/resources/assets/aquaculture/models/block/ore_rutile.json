@@ -1,6 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "aquaculture:blocks/ore_rutile"
+    "all": "aquaculture:blocks/ore_rutile",
+    "normal": "aquaculture:blocks/ore_rutile",
+    "inventory": "aquaculture:blocks/ore_rutile"
   }
 }

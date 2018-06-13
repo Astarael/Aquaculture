@@ -1,7 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "aquaculture:limestone"
+    "model": "aquaculture:ore_rutile"
   },
   "variants": {
     "normal": [{}],
