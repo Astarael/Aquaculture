@@ -1,10 +1,6 @@
-package com.astarael.aquaponics;
+package com.astarael.aquaculture;
 
-import com.astarael.aquaponics.Aquaponics;
-import com.astarael.aquaponics.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.Logger;
 
 public class Config {
 
@@ -22,7 +18,7 @@ public class Config {
             initGeneralConfig(cfg);
             initDimensionConfig(cfg);
         } catch (Exception e1) {
-            //com.astarael.aquaponics.logger.log(Level.ERROR, "Problem loading config file!", e1);
+            //com.astarael.aquaculture.logger.log(Level.ERROR, "Problem loading config file!", e1);
         } finally {
             if (cfg.hasChanged()) {
                 cfg.save();

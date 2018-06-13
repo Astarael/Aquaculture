@@ -1,8 +1,7 @@
-package com.astarael.aquaponics;
+package com.astarael.aquaculture;
 
-import com.astarael.aquaponics.Blocks.*;
-import com.astarael.aquaponics.Items.*;
-import com.astarael.aquaponics.TileEntitities.*;
+import com.astarael.aquaculture.Blocks.*;
+import com.astarael.aquaculture.TileEntitities.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -26,7 +25,7 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
         File directory = e.getModConfigurationDirectory();
-        config = new Configuration(new File(directory.getPath(), "modtut.cfg"));
+        config = new Configuration(new File(directory.getPath(), "aquaculture.cfg"));
         Config.readConfig();
     }
 
@@ -39,23 +38,39 @@ public class CommonProxy {
         }
     }
 
-    public void registerItemRenderer(Item item, int meta, String id) {}
+    public void registerItemRenderer(Item item, int meta, String id) {
+
+    }
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         event.getRegistry().register(new Limestone());
         event.getRegistry().register(new LimeKiln());
-        GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaponics.MODID + ".limekiln"));
+        event.getRegistry().register(new Ore_Titanium());
+        event.getRegistry().register(new Vat());
+        GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ".limekiln"));
+        //GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ".vat"));
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(new FishCod());
-        event.getRegistry().register(new ItemIngotTitanium());
 
+        // Items
+        ModItems.register(event.getRegistry());
+        ModItems.registerModels();
+
+        // ItemBlocks
         event.getRegistry().register(new ItemBlock(ModBlocks.limestone).setRegistryName(ModBlocks.limestone.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.vat).setRegistryName(ModBlocks.vat.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.oretitanium).setRegistryName(ModBlocks.oretitanium.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.limeKiln).setRegistryName(ModBlocks.limeKiln.getRegistryName()));
+
     }
+
+    /*@SubscribeEvent
+        public static void registerItems(ModelRegistryEvent event) {
+            ModItems.registerModels();
+        }*/
 }
 
 

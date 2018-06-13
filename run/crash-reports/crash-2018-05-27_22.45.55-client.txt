@@ -5,8 +5,8 @@ Time: 5/27/18 10:45 PM
 Description: Initializing game
 
 java.lang.NullPointerException: Initializing game
-	at com.astarael.aquaponics.ModBlocks.initModels(ModBlocks.java:18)
-	at com.astarael.aquaponics.ClientProxy.registerModels(ClientProxy.java:33)
+	at com.astarael.aquaculture.ModBlocks.initModels(ModBlocks.java:18)
+	at com.astarael.aquaculture.ClientProxy.registerModels(ClientProxy.java:33)
 	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_4_ClientProxy_registerModels_ModelRegistryEvent.invoke(.dynamic)
 	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
 	at net.minecraftforge.fml.common.eventhandler.EventBus$1.invoke(EventBus.java:144)
@@ -38,8 +38,8 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Client thread
 Stacktrace:
-	at com.astarael.aquaponics.ModBlocks.initModels(ModBlocks.java:18)
-	at com.astarael.aquaponics.ClientProxy.registerModels(ClientProxy.java:33)
+	at com.astarael.aquaculture.ModBlocks.initModels(ModBlocks.java:18)
+	at com.astarael.aquaculture.ClientProxy.registerModels(ClientProxy.java:33)
 	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_4_ClientProxy_registerModels_ModelRegistryEvent.invoke(.dynamic)
 	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
 	at net.minecraftforge.fml.common.eventhandler.EventBus$1.invoke(EventBus.java:144)

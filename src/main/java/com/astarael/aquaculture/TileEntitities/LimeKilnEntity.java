@@ -1,4 +1,4 @@
-package com.astarael.aquaponics.TileEntitities;
+package com.astarael.aquaculture.TileEntitities;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 

@@ -1,7 +1,7 @@
 [
 {
-  "modid": "aquaponics",
-  "name": "Aquaponics",
+  "modid": "aquaculture",
+  "name": "Aquaculture",
   "description": "Fisheries, fish, and Bruce",
   "version": "${version}",
   "mcversion": "${mcversion}",

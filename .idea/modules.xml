@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Aquaponics.iml" filepath="$PROJECT_DIR$/Aquaponics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aquaculture.iml" filepath="$PROJECT_DIR$/.idea/modules/aquaculture.iml" />
     </modules>
   </component>
 </project>

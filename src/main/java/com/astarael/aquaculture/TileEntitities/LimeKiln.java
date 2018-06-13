@@ -1,18 +1,15 @@
-package com.astarael.aquaponics.TileEntitities;
+package com.astarael.aquaculture.TileEntitities;
 
-import com.astarael.aquaponics.Aquaponics;
+import com.astarael.aquaculture.Aquaculture;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -25,7 +22,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class LimeKiln extends Block implements ITileEntityProvider {
 
@@ -33,7 +29,7 @@ public class LimeKiln extends Block implements ITileEntityProvider {
 
     public LimeKiln() {
         super(Material.ROCK);
-        setUnlocalizedName(Aquaponics.MODID + ".limekiln");
+        setUnlocalizedName(Aquaculture.MODID + ".limekiln");
         setRegistryName("limekiln");
     }
 

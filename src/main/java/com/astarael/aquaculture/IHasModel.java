@@ -1,4 +1,4 @@
-package com.astarael.aquaponics;
+package com.astarael.aquaculture;
 
 public interface IHasModel {
 
