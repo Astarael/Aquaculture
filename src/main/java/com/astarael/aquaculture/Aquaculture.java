@@ -1,8 +1,11 @@
 package com.astarael.aquaculture;
 
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemArmor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -22,6 +25,9 @@ public class Aquaculture
 
     @SidedProxy(clientSide = "com.astarael.aquaculture.ClientProxy", serverSide = "com.astarael.aquaculture.ServerProxy")
     public static CommonProxy proxy;
+
+
+    public static final ItemArmor.ArmorMaterial neopreneArmorMaterial = EnumHelper.addArmorMaterial("NEOPRENE", MODID + ":neoprene", 15, new int[]{2, 3, 5, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)

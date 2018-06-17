@@ -1,6 +1,11 @@
 # Items
 item.ingot_titanium.name=Titanium Ingot
 item.burnt_brick.name=Burnt Brick
+item.neoprene_mask=Neoprene Mask
+item.neoprene_suit=Neoprene Suit
+item.neoprene_leggings=Neoprene Leggings
+item.neoprene_boots=Neoprene Boots
+
 
 # Blocks
 tile.aquaculture.ore_rutile.name=Rutile Ore
