@@ -13,6 +13,8 @@ import net.minecraft.world.World;
 public class ItemArmour extends net.minecraft.item.ItemArmor {
 
     private String name;
+    // vanilla has a hardcoded maximum air limit of 300 (15 seconds * 20 ticks)
+    private static final int vanillaMaxAir = 300;
 
     public ItemArmour(String name, ArmorMaterial material, EntityEquipmentSlot slot) {
         super(material, 0, slot);
@@ -29,14 +31,20 @@ public class ItemArmour extends net.minecraft.item.ItemArmor {
     public void onArmorTick (World world, EntityPlayer player, ItemStack itemStack) {
 
         // We only want to do this once per suit, not per piece
-        if (this == ModItems.neopreneSuit) {
+        // This check is a copy of the code in net.minecraftforge.EntityLivingBase.onEntityUpdate()
+        if (this == ModItems.neopreneMask) {
             if (player.isEntityAlive()) {
                 if (!player.canBreatheUnderwater() && !player.isPotionActive(MobEffects.WATER_BREATHING) && !(player.capabilities.disableDamage)) {
                     if (player.inventory.armorItemInSlot(0).getItem() == ModItems.neopreneBoots &&
                             player.inventory.armorItemInSlot(1).getItem() == ModItems.neopreneLeggings &&
                             player.inventory.armorItemInSlot(2).getItem() == ModItems.neopreneSuit &&
                             player.inventory.armorItemInSlot(3).getItem() == ModItems.neopreneMask) {
-                        if (player.getAir() < 300) {
+                        if (player.getAir() < (vanillaMaxAir - 3)) {
+                            // We want to increase air by a lot until we get to the Minecraft vanilla max
+                            player.setAir(increaseAirSupply(player.getAir()));
+                            player.setAir(increaseAirSupply(player.getAir()));
+                            player.setAir(increaseAirSupply(player.getAir()));
+                        } else if (player.getAir() < vanillaMaxAir) {
                             player.setAir(increaseAirSupply(player.getAir()));
                         }
                     }
@@ -47,7 +55,7 @@ public class ItemArmour extends net.minecraft.item.ItemArmor {
 
     private int increaseAirSupply (int air) {
 
-        return air +1;
+        return air + 1;
 
     }
 }
