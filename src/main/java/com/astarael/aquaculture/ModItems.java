@@ -10,6 +10,7 @@ public class ModItems {
 
     public static ItemBase ingotTitanium = new ItemBase("ingot_titanium").setCreativeTab(CreativeTabs.MATERIALS);
     public static ItemBase burntBrick = new ItemBase("burnt_brick").setCreativeTab(CreativeTabs.MATERIALS);
+    public static ItemBase neoprene = new ItemBase("neoprene").setCreativeTab(CreativeTabs.MATERIALS);
     public static ItemArmour neopreneMask = new ItemArmour("neoprene_mask", Aquaculture.neopreneArmorMaterial, EntityEquipmentSlot.HEAD);
     public static ItemArmour neopreneSuit = new ItemArmour("neoprene_suit", Aquaculture.neopreneArmorMaterial, EntityEquipmentSlot.CHEST);
     public static ItemArmour neopreneLeggings = new ItemArmour("neoprene_leggings", Aquaculture.neopreneArmorMaterial, EntityEquipmentSlot.LEGS);
@@ -19,6 +20,7 @@ public class ModItems {
 
         registry.registerAll(ingotTitanium,
                 burntBrick,
+                neoprene,
                 neopreneMask,
                 neopreneSuit,
                 neopreneLeggings,
@@ -30,6 +32,7 @@ public class ModItems {
 
         ingotTitanium.registerItemModel();
         burntBrick.registerItemModel();
+        neoprene.registerItemModel();
         neopreneMask.registerItemModel();
         neopreneSuit.registerItemModel();
         neopreneLeggings.registerItemModel();

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "N N",
+    "N N"
+  ],
+  "key": {
+    "N": {
+      "item": "aquaculture:neoprene"
+    }},
+  "result": {
+    "item": "aquaculture:neoprene_leggings"
+  }
+}
