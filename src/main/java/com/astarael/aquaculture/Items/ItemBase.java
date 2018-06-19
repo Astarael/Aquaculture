@@ -13,6 +13,7 @@ public class ItemBase extends Item {
         this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
+        setCreativeTab(Aquaculture.creativeTab);
     }
 
     public void registerItemModel() {

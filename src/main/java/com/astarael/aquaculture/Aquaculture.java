@@ -28,6 +28,7 @@ public class Aquaculture
 
 
     public static final ItemArmor.ArmorMaterial neopreneArmorMaterial = EnumHelper.addArmorMaterial("NEOPRENE", MODID + ":neoprene", 15, new int[]{2, 3, 5, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+    public static final AquacultureCreativeTab creativeTab = new AquacultureCreativeTab();
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -37,9 +38,9 @@ public class Aquaculture
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent e)
-    {
+    public void init(FMLInitializationEvent e) {
         proxy.init(e);
+        ModRecipes.init();
     }
 
     @EventHandler

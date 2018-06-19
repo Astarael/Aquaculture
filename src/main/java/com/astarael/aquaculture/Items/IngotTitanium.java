@@ -1,6 +1,7 @@
 package com.astarael.aquaculture.Items;
 
 import com.astarael.aquaculture.Aquaculture;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
@@ -12,7 +13,7 @@ public class IngotTitanium extends Item {
     public IngotTitanium() {
         setRegistryName("ingottitanium");        // The unique name (within your mod) that identifies this item
         setUnlocalizedName(Aquaculture.MODID + ".ingottitanium");     // Used for localization (en_US.lang)
-        //setCreativeTab(CreativeTabs.MATERIALS);
+        setCreativeTab(Aquaculture.creativeTab);
     }
 
     @SideOnly(Side.CLIENT)
@@ -24,4 +25,5 @@ public class IngotTitanium extends Item {
     public void registerItemModel() {
         Aquaculture.proxy.registerItemRenderer(this,0,getUnlocalizedName());
     }
+
 }

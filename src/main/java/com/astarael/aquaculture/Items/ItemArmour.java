@@ -2,6 +2,7 @@ package com.astarael.aquaculture.Items;
 
 import com.astarael.aquaculture.Aquaculture;
 import com.astarael.aquaculture.ModItems;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -21,6 +22,13 @@ public class ItemArmour extends net.minecraft.item.ItemArmor {
         setRegistryName(name);
         setUnlocalizedName(name);
         this.name = name;
+        setCreativeTab(Aquaculture.creativeTab);
+    }
+
+    @Override
+    public ItemArmour setCreativeTab(CreativeTabs tab) {
+        super.setCreativeTab(tab);
+        return this;
     }
 
     public void registerItemModel () {

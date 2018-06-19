@@ -18,6 +18,8 @@ public class Limestone extends Block {
         setUnlocalizedName(Aquaculture.MODID + ".limestone");     // Used for localization (en_US.lang)
         setRegistryName("limestone");        // The unique name (within your mod) that identifies this block
 
+        setCreativeTab(Aquaculture.creativeTab);
+
         }
 
     @SideOnly(Side.CLIENT)

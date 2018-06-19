@@ -2,10 +2,10 @@
 item.ingot_titanium.name=Titanium Ingot
 item.burnt_brick.name=Burnt Brick
 item.neoprene.name=Neoprene
-item.neoprene_mask=Neoprene Mask
-item.neoprene_suit=Neoprene Suit
-item.neoprene_leggings=Neoprene Leggings
-item.neoprene_boots=Neoprene Boots
+item.neoprene_mask.name=Neoprene Mask
+item.neoprene_suit.name=Neoprene Suit
+item.neoprene_leggings.name=Neoprene Leggings
+item.neoprene_boots.name=Neoprene Boots
 
 
 # Blocks
