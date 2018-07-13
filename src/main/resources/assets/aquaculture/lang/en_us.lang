@@ -13,3 +13,7 @@ tile.aquaculture.ore_rutile.name=Rutile Ore
 tile.aquaculture.limestone.name=Limestone
 tile.aquaculture.limekiln.name=Lime Kiln Brick
 tile.aquaculture.vat.name=Vat
+tile.aquaculture.evaporationtower.name=Evaporation Tower
+
+#Fluids
+fluid.aquaculture.brine=Brine

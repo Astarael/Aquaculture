@@ -20,12 +20,18 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("aquaculture:ore_rutile")
     public static Ore_Rutile ore_rutile;
 
+    @GameRegistry.ObjectHolder("aquaculture:evaporationtower")
+    public static EvaporationTower evaporationTower = new EvaporationTower();
+
     @SideOnly(Side.CLIENT)
     public static void initModels() {
+
         limeKiln.initModel();
         limestone.initModel();
         vat.initModel();
         ore_rutile.initModel();
+        //evaporationTower
+
     }
 
 }

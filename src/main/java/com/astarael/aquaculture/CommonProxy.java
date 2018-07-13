@@ -8,6 +8,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.*;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -44,12 +45,20 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
+
         event.getRegistry().register(new Limestone());
         event.getRegistry().register(new LimeKiln());
         event.getRegistry().register(new Ore_Rutile());
         event.getRegistry().register(new Vat());
+
         GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ".limekiln"));
-        //GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ".vat"));
+        GameRegistry.registerTileEntity(new EvaporationTower().getTileEntityClass(), new ResourceLocation(Aquaculture.MODID + ".evaporationtower"));
+        //GameRegistry.registerTileEntity(Vat.class, new ResourceLocation(Aquaculture.MODID + ".vat"));
+
+        // FLUIDS
+        FluidRegistry.registerFluid(new AquacultureFluid(Aquaculture.MODID + ".brine", new ResourceLocation(Aquaculture.MODID + ".brine_still"), new ResourceLocation(Aquaculture.MODID + ".brine_flowing")));
+        //FluidRegistry.
+
     }
 
     @SubscribeEvent
@@ -63,8 +72,8 @@ public class CommonProxy {
         event.getRegistry().register(new ItemBlock(ModBlocks.limestone).setRegistryName(ModBlocks.limestone.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.vat).setRegistryName(ModBlocks.vat.getRegistryName()));
         event.getRegistry().register(new ItemBlock(ModBlocks.ore_rutile).setRegistryName(ModBlocks.ore_rutile.getRegistryName()));
-        System.out.println("ore rutile: " + ModBlocks.ore_rutile.getRegistryName());
         event.getRegistry().register(new ItemBlock(ModBlocks.limeKiln).setRegistryName(ModBlocks.limeKiln.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.evaporationTower).setRegistryName(ModBlocks.evaporationTower.getRegistryName()));
 
     }
 }

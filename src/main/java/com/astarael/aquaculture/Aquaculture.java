@@ -1,6 +1,7 @@
 package com.astarael.aquaculture;
 
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -29,6 +30,8 @@ public class Aquaculture
 
     public static final ItemArmor.ArmorMaterial neopreneArmorMaterial = EnumHelper.addArmorMaterial("NEOPRENE", MODID + ":neoprene", 15, new int[]{2, 3, 5, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final AquacultureCreativeTab creativeTab = new AquacultureCreativeTab();
+
+    //public static final Item.ToolMaterial
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
