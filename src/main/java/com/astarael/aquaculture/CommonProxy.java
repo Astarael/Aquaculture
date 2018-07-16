@@ -1,11 +1,17 @@
 package com.astarael.aquaculture;
 
 import com.astarael.aquaculture.Blocks.*;
+import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluid;
+import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluidBlock;
 import com.astarael.aquaculture.TileEntitities.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.*;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -56,8 +62,16 @@ public class CommonProxy {
         //GameRegistry.registerTileEntity(Vat.class, new ResourceLocation(Aquaculture.MODID + ".vat"));
 
         // FLUIDS
-        FluidRegistry.registerFluid(new AquacultureFluid(Aquaculture.MODID + ".brine", new ResourceLocation(Aquaculture.MODID + ".brine_still"), new ResourceLocation(Aquaculture.MODID + ".brine_flowing")));
-        //FluidRegistry.
+        AquacultureFluid brine = new AquacultureFluid(Aquaculture.MODID + ".brine", new ResourceLocation(Aquaculture.MODID + ".brine_still"), new ResourceLocation(Aquaculture.MODID + ".brine_flowing"));
+        FluidRegistry.registerFluid(brine);
+        FluidRegistry.addBucketForFluid(brine);
+        AquacultureFluidBlock brineBlock = new AquacultureFluidBlock(brine, Material.WATER, Aquaculture.MODID + ".brine");
+        Item brineItem = Item.getItemFromBlock(brineBlock);
+        StateMapper mapper = new StateMapper (Aquaculture.MODID, "fluid", Aquaculture.MODID + ".brine");
+
+        ModelBakery.registerItemVariants(brineItem);
+        ModelLoader.setCustomMeshDefinition(brineItem,mapper);
+        ModelLoader.setCustomStateMapper(brineBlock, mapper);
 
     }
 
@@ -76,6 +90,11 @@ public class CommonProxy {
         event.getRegistry().register(new ItemBlock(ModBlocks.evaporationTower).setRegistryName(ModBlocks.evaporationTower.getRegistryName()));
 
     }
+
+    static {
+        FluidRegistry.enableUniversalBucket();
+    }
+
 }
 
 

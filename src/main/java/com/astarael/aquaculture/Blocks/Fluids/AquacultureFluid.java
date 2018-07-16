@@ -1,4 +1,4 @@
-package com.astarael.aquaculture.Blocks;
+package com.astarael.aquaculture.Blocks.Fluids;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.init.SoundEvents;
@@ -13,17 +13,17 @@ import java.awt.*;
 
 public class AquacultureFluid extends Fluid {
 
-    protected static int mapColor = 0x164264FF;
-    protected static float overlayAlpha = 0.2F;
-    protected static final int VISCOCITY = 1150;
-    protected static SoundEvent emptySound = SoundEvents.ITEM_BUCKET_EMPTY;
-    protected static SoundEvent fillSound = SoundEvents.ITEM_BUCKET_FILL;
-    protected static Material material = Material.WATER;
+    private static int mapColor = 0x164264FF;
+    private static float overlayAlpha = 0.2F;
+    private static final int VISCOCITY = 1150;
+    private static SoundEvent emptySound = SoundEvents.ITEM_BUCKET_EMPTY;
+    private static SoundEvent fillSound = SoundEvents.ITEM_BUCKET_FILL;
+    private static Material material = Material.WATER;
 
 
     public AquacultureFluid(String fluidName, ResourceLocation still, ResourceLocation flowing, Color color) {
 
-        super(fluidName, still, flowing, new Color(0x16, 0x42, 0x64, 0xFF));
+        super(fluidName, still, flowing, new Color(36, 76, 190, 0xFF));
         super.setUnlocalizedName(fluidName);
         super.setViscosity(VISCOCITY);
 

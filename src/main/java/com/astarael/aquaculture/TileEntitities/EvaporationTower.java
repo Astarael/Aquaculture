@@ -1,5 +1,6 @@
 package com.astarael.aquaculture.TileEntitities;
 
+import com.astarael.aquaculture.Aquaculture;
 import jline.internal.Nullable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -12,7 +13,7 @@ import net.minecraft.world.World;
 public class EvaporationTower extends BlockTileEntity<TileEntityEvaporationTower> {
 
     public EvaporationTower () {
-        super(Material.ROCK, "evaporationtower");
+        super(Material.ROCK, Aquaculture.MODID + ".evaporationtower");
     }
 
     @Override
