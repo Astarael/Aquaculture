@@ -17,3 +17,6 @@ tile.aquaculture.evaporationtower.name=Evaporation Tower
 
 #Fluids
 fluid.aquaculture.brine=Brine
+
+#Creative Tab
+itemGroup.aquaculture=Aquaculture

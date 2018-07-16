@@ -15,7 +15,7 @@ public class ModBlocks {
     public static Limestone limestone;
 
     @GameRegistry.ObjectHolder("aquaculture:vat")
-    public static Vat vat;
+    public static Vat vat = new Vat();
 
     @GameRegistry.ObjectHolder("aquaculture:ore_rutile")
     public static Ore_Rutile ore_rutile;

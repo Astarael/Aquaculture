@@ -1,5 +1,6 @@
 package com.astarael.aquaculture.Blocks.Fluids;
 
+import com.astarael.aquaculture.Aquaculture;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -15,6 +16,7 @@ public class AquacultureFluidBlock extends BlockFluidFinite {
 
         super(fluid, material);
         this.name = name;
+        setCreativeTab(Aquaculture.creativeTab);
 
     }
 

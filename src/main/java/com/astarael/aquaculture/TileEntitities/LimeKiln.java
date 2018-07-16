@@ -31,6 +31,7 @@ public class LimeKiln extends Block implements ITileEntityProvider {
         super(Material.ROCK);
         setUnlocalizedName(Aquaculture.MODID + ".limekiln");
         setRegistryName("limekiln");
+        setCreativeTab(Aquaculture.creativeTab);
     }
 
     @SideOnly(Side.CLIENT)

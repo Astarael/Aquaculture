@@ -55,11 +55,11 @@ public class CommonProxy {
         event.getRegistry().register(new Limestone());
         event.getRegistry().register(new LimeKiln());
         event.getRegistry().register(new Ore_Rutile());
-        event.getRegistry().register(new Vat());
+        //event.getRegistry().register(new Vat());
 
         GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ".limekiln"));
         GameRegistry.registerTileEntity(new EvaporationTower().getTileEntityClass(), new ResourceLocation(Aquaculture.MODID + ".evaporationtower"));
-        //GameRegistry.registerTileEntity(Vat.class, new ResourceLocation(Aquaculture.MODID + ".vat"));
+        GameRegistry.registerTileEntity(new Vat().getTileEntityClass(), new ResourceLocation(Aquaculture.MODID + ".vat"));
 
         // FLUIDS
         AquacultureFluid brine = new AquacultureFluid(Aquaculture.MODID + ".brine", new ResourceLocation(Aquaculture.MODID + ".brine_still"), new ResourceLocation(Aquaculture.MODID + ".brine_flowing"));
@@ -67,6 +67,7 @@ public class CommonProxy {
         FluidRegistry.addBucketForFluid(brine);
         AquacultureFluidBlock brineBlock = new AquacultureFluidBlock(brine, Material.WATER, Aquaculture.MODID + ".brine");
         Item brineItem = Item.getItemFromBlock(brineBlock);
+        brineItem.setCreativeTab(Aquaculture.creativeTab);
         StateMapper mapper = new StateMapper (Aquaculture.MODID, "fluid", Aquaculture.MODID + ".brine");
 
         ModelBakery.registerItemVariants(brineItem);

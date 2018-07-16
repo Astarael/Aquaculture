@@ -1,5 +1,6 @@
 package com.astarael.aquaculture.Blocks;
 
+import com.astarael.aquaculture.Aquaculture;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -11,6 +12,7 @@ public class BlockOre extends BlockBase {
 
         setHardness(3f);
         setResistance(5f);
+        setCreativeTab(Aquaculture.creativeTab);
 
     }
 

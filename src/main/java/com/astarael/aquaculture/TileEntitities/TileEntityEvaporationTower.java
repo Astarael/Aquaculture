@@ -29,8 +29,6 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable 
     private FluidTank waterTank;
     private FluidTank brineTank;
 
-    //private FluidTankCore waterTank = new FluidTank
-
     private static final int MAX_FLUID_AMOUNT = 4000;
 
     public TileEntityEvaporationTower () {
