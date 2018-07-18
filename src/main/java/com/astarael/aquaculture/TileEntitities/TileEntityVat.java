@@ -10,22 +10,24 @@ public class TileEntityVat extends TileEntity implements ITickable {
     // to prevent updating every tick we delay it for 10 ticks until the next check
     private int delayCounter = 10;
 
-    private ItemStack inputStack;
-    private ItemStack outputStack;
+    private ItemStack[] inputStack;
+    private ItemStack[] outputStack;
     private FluidTank fluidTank;
 
     public TileEntityVat () {
 
         fluidTank = new FluidTank(128000);
+        inputStack = new ItemStack[0];
+        outputStack = new ItemStack[0];
 
 
     }
 
-    public ItemStack getInputStack () {
+    public ItemStack[] getInputStack () {
         return inputStack;
     }
 
-    public ItemStack getOutputStack () {
+    public ItemStack[] getOutputStack () {
         return outputStack;
     }
 

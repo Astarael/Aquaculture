@@ -30,7 +30,7 @@ public class ModBlocks {
         limestone.initModel();
         vat.initModel();
         ore_rutile.initModel();
-        //evaporationTower
+        evaporationTower.initModel();
 
     }
 
