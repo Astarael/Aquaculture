@@ -15,7 +15,7 @@ public class ModItems {
     public static ItemArmour neopreneLeggings = new ItemArmour("neoprene_leggings", Aquaculture.neopreneArmorMaterial, EntityEquipmentSlot.LEGS);
     public static ItemArmour neopreneBoots = new ItemArmour("neoprene_boots", Aquaculture.neopreneArmorMaterial, EntityEquipmentSlot.FEET);
 
-    public static void register(IForgeRegistry<Item> registry) {
+    public static void register (IForgeRegistry<Item> registry) {
 
         registry.registerAll(ingotTitanium,
                 burntBrick,
@@ -27,7 +27,7 @@ public class ModItems {
 
     }
 
-    public static void registerModels() {
+    public static void registerModels () {
 
         ingotTitanium.registerItemModel();
         burntBrick.registerItemModel();

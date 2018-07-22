@@ -14,19 +14,19 @@ public class ClientProxy extends CommonProxy {
 
     public void registerItemRenderer (Item item, int meta, String id) {
 
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(),id));
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
 
     }
 
     @Override
-    public void preInit(FMLPreInitializationEvent e) {
+    public void preInit (FMLPreInitializationEvent e) {
 
         super.preInit(e);
 
     }
 
     @SubscribeEvent
-    public static void registerModels(ModelRegistryEvent event) {
+    public static void registerModels (ModelRegistryEvent event) {
 
         ModBlocks.initModels();
         ModItems.registerModels();

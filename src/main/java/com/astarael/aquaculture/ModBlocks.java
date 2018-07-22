@@ -24,7 +24,7 @@ public class ModBlocks {
     public static EvaporationTower evaporationTower = new EvaporationTower();
 
     @SideOnly(Side.CLIENT)
-    public static void initModels() {
+    public static void initModels () {
 
         limeKiln.initModel();
         limestone.initModel();

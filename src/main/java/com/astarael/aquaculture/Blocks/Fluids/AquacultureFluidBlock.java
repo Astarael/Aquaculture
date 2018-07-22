@@ -12,7 +12,7 @@ public class AquacultureFluidBlock extends BlockFluidFinite {
 
     private String name;
 
-    public AquacultureFluidBlock(Fluid fluid, Material material, String name) {
+    public AquacultureFluidBlock (Fluid fluid, Material material, String name) {
 
         super(fluid, material);
         this.name = name;
@@ -22,7 +22,7 @@ public class AquacultureFluidBlock extends BlockFluidFinite {
 
 
     @Override
-    public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
+    public boolean canCreatureSpawn (IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
 
         return false;
     }

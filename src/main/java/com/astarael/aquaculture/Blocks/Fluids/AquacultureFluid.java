@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
+
 import java.awt.*;
 
 
@@ -22,7 +23,7 @@ public class AquacultureFluid extends Fluid {
     private static Material material = Material.WATER;
 
 
-    public AquacultureFluid(String fluidName, ResourceLocation still, ResourceLocation flowing, Color color) {
+    public AquacultureFluid (String fluidName, ResourceLocation still, ResourceLocation flowing, Color color) {
 
         super(fluidName, still, flowing, new Color(36, 76, 190, 0xFF));
         super.setUnlocalizedName(fluidName);
@@ -44,12 +45,12 @@ public class AquacultureFluid extends Fluid {
         setAlpha(overlayAlpha);
     }
 
-    public AquacultureFluid setColor(int parColor) {
+    public AquacultureFluid setColor (int parColor) {
         mapColor = parColor;
         return this;
     }
 
-    public float getAlpha() {
+    public float getAlpha () {
         return overlayAlpha;
     }
 
@@ -70,32 +71,27 @@ public class AquacultureFluid extends Fluid {
     }
 
     @Override
-    public AquacultureFluid setFillSound(SoundEvent parSound)
-    {
+    public AquacultureFluid setFillSound (SoundEvent parSound) {
         fillSound = parSound;
         return this;
     }
 
     @Override
-    public SoundEvent getFillSound()
-    {
+    public SoundEvent getFillSound () {
         return fillSound;
     }
 
-    public AquacultureFluid setMaterial(Material parMaterial)
-    {
+    public AquacultureFluid setMaterial (Material parMaterial) {
         material = parMaterial;
         return this;
     }
 
-    public Material getMaterial()
-    {
+    public Material getMaterial () {
         return material;
     }
 
     @Override
-    public boolean doesVaporize(FluidStack fluidStack)
-    {
+    public boolean doesVaporize (FluidStack fluidStack) {
         if (block == null)
             return false;
         return block.getDefaultState().getMaterial() == getMaterial();
