@@ -34,10 +34,10 @@ public class Aquaculture
     //public static final Item.ToolMaterial
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         proxy.preInit(event);
+
     }
 
     @EventHandler
