@@ -165,9 +165,9 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 
-        AquacultureFluid brine = new AquacultureFluid(Aquaculture.MODID + ".brine", new ResourceLocation(Aquaculture.MODID + ".brine_still"), new ResourceLocation(Aquaculture.MODID + ".brine_flowing"));
-        AquacultureFluidBlock brineBlock = new AquacultureFluidBlock(brine, Material.WATER, Aquaculture.MODID + ".brine");
-        Item brineItem = Item.getItemFromBlock(brineBlock);
+        AquacultureFluid brine = new AquacultureFluid(Aquaculture.MODID + ":brine", 1);
+        AquacultureFluidBlock brineBlock = new AquacultureFluidBlock(brine, Material.WATER);
+        //Item brineItem = Item.getItemFromBlock(brineBlock);
 
         if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
             return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(FluidUtil.getFluidHandler(new ItemStack(brineBlock)));

@@ -22,7 +22,6 @@ public class FluidClientProxy extends ClientProxy {
 
     }
 
-    @Override
     public void registerFluidModels (AquacultureFluid fluid) {
         if (fluid == null) {
             return;
