@@ -35,7 +35,7 @@ public class AquacultureFluids {
         FluidRegistry.enableUniversalBucket();
 
         // hex code
-        brine = new AquacultureFluid(Aquaculture.MODID + ":brine", 0x1);
+        brine = new AquacultureFluid(Aquaculture.MODID + ":brine", 0x103464);
         brine.setViscosity(1100);
 
 
