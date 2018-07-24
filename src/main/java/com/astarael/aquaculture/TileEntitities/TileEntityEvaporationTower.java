@@ -65,8 +65,10 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
 
     }
 
+
     public boolean onBlockActivated (World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem,
                                     EnumFacing side, float hitX, float hitY, float hitZ) {
+        System.out.println("tile");
         // Only execute on the server
         if (world.isRemote) {
             return true;
@@ -158,6 +160,8 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
     public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
         if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             return true;
+        } else if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
+            return true;
         }
         return super.hasCapability(capability, facing);
     }
@@ -193,5 +197,7 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
         return nbt;
 
     }
+
+
 
 }

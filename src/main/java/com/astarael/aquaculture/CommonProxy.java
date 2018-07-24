@@ -4,6 +4,7 @@ import com.astarael.aquaculture.Blocks.*;
 import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluid;
 import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluidBlock;
 import com.astarael.aquaculture.TileEntitities.*;
+import com.astarael.aquaculture.TileEntitities.Inventories.GuiProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.io.File;
@@ -38,6 +40,7 @@ public class CommonProxy {
     }
 
     public void init (FMLInitializationEvent e) {
+        NetworkRegistry.INSTANCE.registerGuiHandler(Aquaculture.instance, new GuiProxy());
     }
 
     public void postInit (FMLPostInitializationEvent e) {
