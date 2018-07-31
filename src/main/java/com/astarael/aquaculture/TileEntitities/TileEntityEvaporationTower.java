@@ -1,34 +1,22 @@
 package com.astarael.aquaculture.TileEntitities;
 
 import com.astarael.aquaculture.Aquaculture;
-import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluid;
-import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluidBlock;
-import com.astarael.aquaculture.TileEntitities.FluidTank;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.FluidTankInfo;
-import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
-import net.minecraftforge.fluids.capability.FluidTankProperties;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.items.CapabilityItemHandler;
 
 public class TileEntityEvaporationTower extends TileEntity implements ITickable, ITileEntityProvider {
@@ -50,8 +38,8 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
 
     public TileEntityEvaporationTower () {
 
-        this.waterTank = new FluidTank(MAX_FLUID_AMOUNT);
-        this.brineTank = new FluidTank(MAX_FLUID_AMOUNT);
+        waterTank = new FluidTank(MAX_FLUID_AMOUNT);
+        brineTank = new FluidTank(MAX_FLUID_AMOUNT);
 
         waterTank.setLock(FluidRegistry.WATER);
         brineTank.setLock(FluidRegistry.getFluid(Aquaculture.MODID + ".brine"));
@@ -66,9 +54,8 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
     }
 
 
-    public boolean onBlockActivated (World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem,
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
                                     EnumFacing side, float hitX, float hitY, float hitZ) {
-        System.out.println("tile");
         // Only execute on the server
         if (world.isRemote) {
             return true;
@@ -169,13 +156,13 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 
-        AquacultureFluid brine = new AquacultureFluid(Aquaculture.MODID + ":brine", 1);
+        /*AquacultureFluid brine = new AquacultureFluid(Aquaculture.MODID + ".brine", 1);
         AquacultureFluidBlock brineBlock = new AquacultureFluidBlock(brine, Material.WATER);
         //Item brineItem = Item.getItemFromBlock(brineBlock);
 
         if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
             return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(FluidUtil.getFluidHandler(new ItemStack(brineBlock)));
-        }
+        }*/
         return super.getCapability(capability, facing);
     }
 

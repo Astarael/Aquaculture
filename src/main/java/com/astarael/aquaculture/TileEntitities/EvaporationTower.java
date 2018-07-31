@@ -61,11 +61,11 @@ public class EvaporationTower extends BlockTileEntity<TileEntityEvaporationTower
         return new TileEntityEvaporationTower();
     }
 
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side,
-                                    float hitX, float hitY, float hitZ) {
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+                                    EnumFacing side, float hitX, float hitY, float hitZ) {
 
         //TODO Bucket handling
-        System.out.println("block");
 
         // Only execute on the server
         if (world.isRemote) {

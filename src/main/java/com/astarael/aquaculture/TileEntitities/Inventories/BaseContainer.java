@@ -40,7 +40,7 @@ public abstract class BaseContainer<T extends TileEntity> extends Container {
     protected final BlockPos pos;
     protected final World world;
     protected final IItemHandler itemHandler;
-    protected final IFluidHandler fluidHandler;
+    //protected final IFluidHandler fluidHandler;
 
     public List<Container> subContainers = Lists.newArrayList();
 
@@ -57,11 +57,12 @@ public abstract class BaseContainer<T extends TileEntity> extends Container {
             itemHandler = new EmptyHandler();
         }
 
-        if (tile.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, invDir)) {
+        // TODO: do we need a FluidHandler?
+        /*if (tile.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, invDir)) {
             fluidHandler = tile.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, invDir);
         } else {
             fluidHandler = EmptyFluidHandler.INSTANCE;
-        }
+        }*/
 
         world = tile.getWorld();
         pos = tile.getPos();
@@ -85,6 +86,25 @@ public abstract class BaseContainer<T extends TileEntity> extends Container {
 
         // no player has a container open for the tile
         syncNewContainer(playerOpened);
+    }
+
+    // TODO: Remove magic y numbers
+    void addPlayerSlots (IInventory playerInventory) {
+        // Slots for the main inventory
+        for (int row = 0; row < 3; ++row) {
+            for (int col = 0; col < 9; ++col) {
+                int x = 9 + col * 18;
+                int y = row * 18 + 70;
+                addSlotToContainer(new Slot(playerInventory, col + row * 9 + 10, x, y));
+            }
+        }
+
+        // Slots for the hotbar
+        for (int row = 0; row < 9; ++row) {
+            int x = 9 + row * 18;
+            int y = 58 + 70;
+            addSlotToContainer(new Slot(playerInventory, row, x, y));
+        }
     }
 
     public T getTile() {
@@ -122,9 +142,8 @@ public abstract class BaseContainer<T extends TileEntity> extends Container {
         }
 
         // too far away from block?
-        return playerIn.getDistanceSq((double) pos.getX() + 0.5d,
-                (double) pos.getY() + 0.5d,
-                (double) pos.getZ() + 0.5d) <= maxDist;
+        return playerIn.getDistanceSq(tile.getPos().add(0.5, 0.5, 0.5)) <= 64;
+
     }
 
     @Nonnull

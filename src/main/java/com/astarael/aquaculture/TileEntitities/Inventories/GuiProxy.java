@@ -1,5 +1,6 @@
 package com.astarael.aquaculture.TileEntitities.Inventories;
 
+import com.astarael.aquaculture.TileEntitities.EvaporationTower;
 import com.astarael.aquaculture.TileEntitities.TileEntityEvaporationTower;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -25,7 +26,7 @@ public class GuiProxy implements IGuiHandler {
         TileEntity te = world.getTileEntity(pos);
         if (te instanceof TileEntityEvaporationTower) {
             TileEntityEvaporationTower containerTileEntity = (TileEntityEvaporationTower) te;
-            return new GuiEvaporationTower(containerTileEntity, new ContainerEvaporationTower(player.inventory, containerTileEntity));
+            return new GuiEvaporationTower((TileEntityEvaporationTower) world.getTileEntity( new BlockPos(x, y, z)), new ContainerEvaporationTower(player.inventory, containerTileEntity));
         }
         return null;
     }

@@ -15,35 +15,17 @@ import javax.annotation.Nullable;
 
 public class ContainerEvaporationTower extends BaseContainer<TileEntityEvaporationTower> {
 
-    private TileEntityEvaporationTower te;
+    private TileEntityEvaporationTower tower;
 
     public ContainerEvaporationTower(IInventory playerInventory, TileEntityEvaporationTower tile) {
         super(playerInventory, tile);
-        te = tile;
+        tower = tile;
         addPlayerSlots(playerInventory);
     }
 
-    private void addPlayerSlots(IInventory playerInventory) {
-        // Slots for the main inventory
-        for (int row = 0; row < 3; ++row) {
-            for (int col = 0; col < 9; ++col) {
-                int x = 9 + col * 18;
-                int y = row * 18 + 70;
-                addSlotToContainer(new Slot(playerInventory, col + row * 9 + 10, x, y));
-            }
-        }
-
-        // Slots for the hotbar
-        for (int row = 0; row < 9; ++row) {
-            int x = 9 + row * 18;
-            int y = 58 + 70;
-            addSlotToContainer(new Slot(playerInventory, row, x, y));
-        }
-    }
-
     private void addOwnSlots() {
-        IItemHandler itemHandler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-        IFluidHandler fluidHandler = te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+        IItemHandler itemHandler = tower.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+        IFluidHandler fluidHandler = tower.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         int x = 9;
         int y = 6;
 
@@ -85,8 +67,10 @@ public class ContainerEvaporationTower extends BaseContainer<TileEntityEvaporati
     }
 
     @Override
-    public boolean canInteractWith(EntityPlayer playerIn) {
-        return te.canInteractWith(playerIn);
+    public boolean canInteractWith (EntityPlayer playerIn) {
+
+        return tower.canInteractWith(playerIn);
+
     }
 
 }
