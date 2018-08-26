@@ -1,5 +1,7 @@
 package com.astarael.aquaculture;
 
+import com.astarael.aquaculture.Registry.ModBlocks;
+import com.astarael.aquaculture.Registry.ModItems;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;

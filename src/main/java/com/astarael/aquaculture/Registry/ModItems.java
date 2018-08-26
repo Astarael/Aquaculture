@@ -1,5 +1,6 @@
-package com.astarael.aquaculture;
+package com.astarael.aquaculture.Registry;
 
+import com.astarael.aquaculture.Aquaculture;
 import com.astarael.aquaculture.Items.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;

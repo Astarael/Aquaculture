@@ -3,19 +3,18 @@ package com.astarael.aquaculture;
 import com.astarael.aquaculture.Blocks.*;
 import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluid;
 import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluidBlock;
+import com.astarael.aquaculture.Registry.ModBlocks;
+import com.astarael.aquaculture.Registry.ModFluids;
+import com.astarael.aquaculture.Registry.ModItems;
 import com.astarael.aquaculture.TileEntitities.*;
 import com.astarael.aquaculture.TileEntitities.Inventories.GuiProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.block.model.ModelBakery;
-import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.*;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -37,6 +36,7 @@ public class CommonProxy {
         File directory = e.getModConfigurationDirectory();
         config = new Configuration(new File(directory.getPath(), "aquaculture.cfg"));
         Config.readConfig();
+        ModFluids.init();
     }
 
     public void init (FMLInitializationEvent e) {
@@ -67,6 +67,8 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ":limekiln"));
         GameRegistry.registerTileEntity(new EvaporationTower().getTileEntityClass(), new ResourceLocation(Aquaculture.MODID + ":evaporationtower"));
         GameRegistry.registerTileEntity(new Vat().getTileEntityClass(), new ResourceLocation(Aquaculture.MODID + ":vat"));
+
+        event.getRegistry().register(new AquacultureFluidBlock(new AquacultureFluid("brinefluid", 0x103464),Material.WATER));
 
     }
 

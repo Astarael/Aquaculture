@@ -1,5 +1,6 @@
 package com.astarael.aquaculture;
 
+import com.astarael.aquaculture.Registry.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 

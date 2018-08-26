@@ -1,10 +1,10 @@
 package com.astarael.aquaculture.Blocks.Fluids;
 
 import com.astarael.aquaculture.Aquaculture;
+import com.astarael.aquaculture.Registry.ModFluids;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fluids.BlockFluidClassic;
@@ -18,22 +18,16 @@ public class AquacultureFluidBlock extends BlockFluidClassic {
 
         super(fluid, material);
         setCreativeTab(Aquaculture.creativeTab);
+        this.setUnlocalizedName(ModFluids.brineFluid.getUnlocalizedName());
+        this.setRegistryName(ModFluids.brineFluid.getUnlocalizedName());
 
     }
 
 
     @Override
-    public boolean canCreatureSpawn (IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type) {
+    public boolean canCreatureSpawn (IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type) {
 
         return false;
     }
-
-    @Override
-    public BlockFaceShape getBlockFaceShape (IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
-
-        return BlockFaceShape.UNDEFINED;
-
-    }
-
 
 }

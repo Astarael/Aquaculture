@@ -1,4 +1,4 @@
-package com.astarael.aquaculture;
+package com.astarael.aquaculture.Registry;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;

@@ -1,12 +1,10 @@
 package com.astarael.aquaculture.Items;
 
 import com.astarael.aquaculture.Aquaculture;
-import com.astarael.aquaculture.ModItems;
+import com.astarael.aquaculture.Registry.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.Item;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
