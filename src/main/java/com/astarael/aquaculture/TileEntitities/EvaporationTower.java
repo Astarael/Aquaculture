@@ -19,7 +19,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EvaporationTower extends BlockTileEntity<TileEntityEvaporationTower> implements ITileEntityProvider {
+public class EvaporationTower extends BlockTileEntity<TileEntityEvaporationTower> {
 
     public static final int GUI_ID = 1;
 
@@ -54,11 +54,6 @@ public class EvaporationTower extends BlockTileEntity<TileEntityEvaporationTower
     @SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-    }
-
-    @Override
-    public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntityEvaporationTower();
     }
 
     @Override

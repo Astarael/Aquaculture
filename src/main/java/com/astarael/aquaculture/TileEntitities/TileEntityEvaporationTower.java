@@ -2,7 +2,6 @@ package com.astarael.aquaculture.TileEntitities;
 
 import com.astarael.aquaculture.Aquaculture;
 import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -19,7 +18,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public class TileEntityEvaporationTower extends TileEntity implements ITickable, ITileEntityProvider {
+public class TileEntityEvaporationTower extends TileEntity implements ITickable {
 
     // to prevent updating every tick we delay it for 10 ticks until the next check
     private int delayCounter = 10;
@@ -38,6 +37,7 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
 
     public TileEntityEvaporationTower () {
 
+        super();
         waterTank = new FluidTank(MAX_FLUID_AMOUNT);
         brineTank = new FluidTank(MAX_FLUID_AMOUNT);
 
@@ -45,14 +45,6 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
         brineTank.setLock(FluidRegistry.getFluid(Aquaculture.MODID + ".brine"));
 
     }
-
-    @Override
-    public TileEntity createNewTileEntity (World worldIn, int meta) {
-
-        return new TileEntityEvaporationTower();
-
-    }
-
 
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
                                     EnumFacing side, float hitX, float hitY, float hitZ) {
@@ -100,6 +92,7 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable,
         // don't update every tick
         if (blockType instanceof EvaporationTower) {
             delayCounter--;
+            markDirty();
             if (delayCounter <= 0) {
                 delayCounter = 10;
                 // are we the server (not remote)

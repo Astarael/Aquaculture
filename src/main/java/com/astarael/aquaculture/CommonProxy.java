@@ -65,8 +65,8 @@ public class CommonProxy {
         event.getRegistry().register(new Ore_Rutile());
 
         GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ":limekiln"));
-        GameRegistry.registerTileEntity(new EvaporationTower().getTileEntityClass(), new ResourceLocation(Aquaculture.MODID + ":evaporationtower"));
-        GameRegistry.registerTileEntity(new Vat().getTileEntityClass(), new ResourceLocation(Aquaculture.MODID + ":vat"));
+        GameRegistry.registerTileEntity(TileEntityEvaporationTower.class, new ResourceLocation(Aquaculture.MODID + ":evaporationtower"));
+        GameRegistry.registerTileEntity(TileEntityVat.class, new ResourceLocation(Aquaculture.MODID + ":vat"));
 
         event.getRegistry().register(new AquacultureFluidBlock(new AquacultureFluid("brinefluid", 0x103464),Material.WATER));
 

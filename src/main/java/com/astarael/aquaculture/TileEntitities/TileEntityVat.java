@@ -16,6 +16,7 @@ public class TileEntityVat extends TileEntity implements ITickable {
 
     public TileEntityVat () {
 
+        super();
         fluidTank = new FluidTank(128000);
         inputStack = new ItemStack[0];
         outputStack = new ItemStack[0];
@@ -39,6 +40,7 @@ public class TileEntityVat extends TileEntity implements ITickable {
         // don't update every tick
         if (blockType instanceof Vat) {
             delayCounter--;
+            markDirty();
             if (delayCounter <= 0) {
                 delayCounter = 10;
             }
