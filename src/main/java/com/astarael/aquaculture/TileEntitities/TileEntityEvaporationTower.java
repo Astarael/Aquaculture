@@ -16,9 +16,10 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.TileFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public class TileEntityEvaporationTower extends TileEntity implements ITickable {
+public class TileEntityEvaporationTower extends TileFluidHandler implements ITickable {
 
     // to prevent updating every tick we delay it for 10 ticks until the next check
     private int delayCounter = 10;
@@ -137,25 +138,10 @@ public class TileEntityEvaporationTower extends TileEntity implements ITickable 
     }
 
     @Override
-    public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return true;
-        } else if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
-            return true;
-        }
-        return super.hasCapability(capability, facing);
-    }
-
-    @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 
-        /*AquacultureFluid brine = new AquacultureFluid(Aquaculture.MODID + ".brine", 1);
-        AquacultureFluidBlock brineBlock = new AquacultureFluidBlock(brine, Material.WATER);
-        //Item brineItem = Item.getItemFromBlock(brineBlock);
-
-        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
-            return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(FluidUtil.getFluidHandler(new ItemStack(brineBlock)));
-        }*/
+        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
+            return (T) brineTank;
         return super.getCapability(capability, facing);
     }
 

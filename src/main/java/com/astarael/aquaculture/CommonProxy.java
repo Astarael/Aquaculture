@@ -1,20 +1,21 @@
 package com.astarael.aquaculture;
 
 import com.astarael.aquaculture.Blocks.*;
-import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluid;
-import com.astarael.aquaculture.Blocks.Fluids.AquacultureFluidBlock;
 import com.astarael.aquaculture.Registry.ModBlocks;
 import com.astarael.aquaculture.Registry.ModFluids;
 import com.astarael.aquaculture.Registry.ModItems;
 import com.astarael.aquaculture.TileEntitities.*;
 import com.astarael.aquaculture.TileEntitities.Inventories.GuiProxy;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.*;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.BlockFluidFinite;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -36,7 +37,7 @@ public class CommonProxy {
         File directory = e.getModConfigurationDirectory();
         config = new Configuration(new File(directory.getPath(), "aquaculture.cfg"));
         Config.readConfig();
-        ModFluids.init();
+
     }
 
     public void init (FMLInitializationEvent e) {
@@ -64,11 +65,14 @@ public class CommonProxy {
         event.getRegistry().register(new LimeKiln());
         event.getRegistry().register(new Ore_Rutile());
 
+        Fluid brineFluid = ModFluids.registerFluid("brine");
+        BlockFluidFinite brineBlock = ModFluids.registerFluidBlock(brineFluid, "brine", new Material(MapColor.ICE));
+
+        event.getRegistry().register(brineBlock);
+
         GameRegistry.registerTileEntity(LimeKilnEntity.class, new ResourceLocation(Aquaculture.MODID + ":limekiln"));
         GameRegistry.registerTileEntity(TileEntityEvaporationTower.class, new ResourceLocation(Aquaculture.MODID + ":evaporationtower"));
         GameRegistry.registerTileEntity(TileEntityVat.class, new ResourceLocation(Aquaculture.MODID + ":vat"));
-
-        event.getRegistry().register(new AquacultureFluidBlock(new AquacultureFluid("brinefluid", 0x103464),Material.WATER));
 
     }
 

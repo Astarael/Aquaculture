@@ -24,8 +24,10 @@ public class EvaporationTower extends BlockTileEntity<TileEntityEvaporationTower
     public static final int GUI_ID = 1;
 
     public EvaporationTower () {
-        super(Material.ROCK, Aquaculture.MODID + ".evaporationtower");
+
+        super(Material.IRON, Aquaculture.MODID + ".evaporationtower");
         setCreativeTab(Aquaculture.creativeTab);
+
     }
 
     @Override
