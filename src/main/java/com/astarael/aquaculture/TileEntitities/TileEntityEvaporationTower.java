@@ -1,9 +1,11 @@
 package com.astarael.aquaculture.TileEntitities;
 
 import com.astarael.aquaculture.Aquaculture;
+import com.astarael.aquaculture.CommonProxy;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -12,12 +14,15 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.TileFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
+
+import java.util.ArrayList;
 
 public class TileEntityEvaporationTower extends TileFluidHandler implements ITickable {
 
@@ -36,6 +41,8 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
 
     public static final int GUI_ID = 1;
 
+    private static final ArrayList<Biome> OCEAN_BIOMES = new ArrayList<>();
+
     public TileEntityEvaporationTower () {
 
         super();
@@ -44,6 +51,11 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
 
         waterTank.setLock(FluidRegistry.WATER);
         brineTank.setLock(FluidRegistry.getFluid(Aquaculture.MODID + ".brine"));
+
+        // TODO: Config
+        OCEAN_BIOMES.add(Biomes.OCEAN);
+        OCEAN_BIOMES.add(Biomes.DEEP_OCEAN);
+        OCEAN_BIOMES.add(Biomes.FROZEN_OCEAN);
 
     }
 
@@ -113,21 +125,22 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
                 }
 
                 if (waterTank.getFluidAmount() < (MAX_FLUID_AMOUNT - WATER_GEN_RATE)) {
-                    // TODO: if is in ocean biome
-                    if (isWater(world.getBlockState(pos.down()))) {
+                    if (isOcean(world, pos, world.getBlockState(pos.down()))) {
                         waterTank.modifyFluidStored(WATER_GEN_RATE);
                     }
 
                 } else {
-                    waterTank.modifyFluidStored(MAX_FLUID_AMOUNT);
+                    if (isOcean(world, pos, world.getBlockState(pos.down()))) {
+                        waterTank.modifyFluidStored(MAX_FLUID_AMOUNT);
+                    }
                 }
             }
         }
     }
 
-    protected static boolean isWater(IBlockState state) {
+    protected boolean isOcean(World world, BlockPos pos, IBlockState state) {
 
-        return (state.getBlock() == Blocks.WATER || state.getBlock() == Blocks.FLOWING_WATER) && state.getValue(BlockLiquid.LEVEL) == 0;
+        return OCEAN_BIOMES.contains(world.getBiome(pos)) && (state.getBlock() == Blocks.WATER || state.getBlock() == Blocks.FLOWING_WATER) && state.getValue(BlockLiquid.LEVEL) == 0;
     }
 
     public boolean canInteractWith (EntityPlayer playerIn) {
