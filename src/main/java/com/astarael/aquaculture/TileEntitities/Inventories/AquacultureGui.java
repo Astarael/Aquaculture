@@ -3,20 +3,19 @@ package com.astarael.aquaculture.TileEntitities.Inventories;
 import com.astarael.aquaculture.Aquaculture;
 import com.astarael.aquaculture.TileEntitities.TileEntityEvaporationTower;
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiEvaporationTower extends GuiContainer {
+public class AquacultureGui extends GuiContainer {
 
-    public static final int WIDTH = 180;
-    public static final int HEIGHT = 152;
+    private final ResourceLocation background;
 
-    private static final ResourceLocation background = new ResourceLocation(Aquaculture.MODID, "textures/gui/evaporation_tower.png");
-
-    public GuiEvaporationTower(TileEntityEvaporationTower tileEntity, ContainerEvaporationTower container) {
+    public AquacultureGui(TileEntity tileEntity, BaseContainer container, int width, int height, ResourceLocation background) {
         super(container);
 
-        xSize = WIDTH;
-        ySize = HEIGHT;
+        xSize = width;
+        ySize = height;
+        this.background = background;
     }
 
     @Override

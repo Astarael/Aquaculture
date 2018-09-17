@@ -1,7 +1,6 @@
 package com.astarael.aquaculture.TileEntitities;
 
 import com.astarael.aquaculture.Aquaculture;
-import com.astarael.aquaculture.CommonProxy;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,8 +19,8 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.TileFluidHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 
 public class TileEntityEvaporationTower extends TileFluidHandler implements ITickable {
@@ -115,10 +114,7 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
                 // TODO: check if this logic is needed
                 if (world != null && !world.isRemote && (worldTime >= 1000) && (worldTime <= 12000)) {
                     blockType = getBlockType();
-                    if (waterTank.getFluidAmount() >= WATER_USAGE_RATE && (brineTank.getFluidAmount() < (MAX_FLUID_AMOUNT - BRINE_GEN_RATE))) {
-                        brineTank.modifyFluidStored(BRINE_GEN_RATE);
-                        waterTank.modifyFluidStored(-WATER_USAGE_RATE);
-                    } else if (waterTank.getFluidAmount() >= WATER_USAGE_RATE && (brineTank.getFluidAmount() < MAX_FLUID_AMOUNT)) {
+                    if (waterTank.getFluidAmount() >= WATER_USAGE_RATE && (brineTank.getFluidAmount() < MAX_FLUID_AMOUNT)) {
                         brineTank.modifyFluidStored(BRINE_GEN_RATE);
                         waterTank.modifyFluidStored(-WATER_USAGE_RATE);
                     }
@@ -138,7 +134,7 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
         }
     }
 
-    protected boolean isOcean(World world, BlockPos pos, IBlockState state) {
+    private boolean isOcean(World world, BlockPos pos, IBlockState state) {
 
         return OCEAN_BIOMES.contains(world.getBiome(pos)) && (state.getBlock() == Blocks.WATER || state.getBlock() == Blocks.FLOWING_WATER) && state.getValue(BlockLiquid.LEVEL) == 0;
     }
@@ -151,7 +147,7 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
     }
 
     @Override
-    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+    public <T> T getCapability(@Nonnull Capability<T> capability, EnumFacing facing) {
 
         if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
             return (T) brineTank;
