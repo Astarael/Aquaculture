@@ -7,6 +7,7 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.block.state.IBlockState;
@@ -24,6 +25,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 
 public class Vat extends BlockTileEntity<TileEntityVat> {
+
+    private static boolean INPUT = true;
+    private static boolean OUTPUT = false;
 
     public Vat() {
 
@@ -56,7 +60,11 @@ public class Vat extends BlockTileEntity<TileEntityVat> {
         TileEntity tileentity = worldIn.getTileEntity(pos);
         if (tileentity instanceof TileEntityVat) { // prevent a crash if not the right type, or is null
             TileEntityVat tileEntityVat = (TileEntityVat)tileentity;
+
+
         }
+
+
 
     }
 
@@ -70,12 +78,46 @@ public class Vat extends BlockTileEntity<TileEntityVat> {
         if (world.isRemote) {
             return true;
         }
-        TileEntity te = world.getTileEntity(pos);
-        if (!(te instanceof TileEntityEvaporationTower)) {
+
+
+
+        TileEntityVat te = (TileEntityVat) world.getTileEntity(pos);
+        if (!(te instanceof TileEntityVat)) {
             return false;
         }
 
-        FluidUtil.interactWithFluidHandler(player, hand, world, pos, side);
+        if (FluidUtil.interactWithFluidHandler(player, hand, world, pos, side)) {
+        } else {
+
+            ItemStack heldItem = player.getHeldItem(hand);
+
+            if (te.getStack(INPUT).isEmpty()) {
+
+                if (!heldItem.isEmpty()) {
+                    // There is no item in the pedestal and the player is holding an item. We move that item
+                    // to the pedestal
+                    te.setStack(heldItem,INPUT);
+                    player.inventory.setInventorySlotContents(player.inventory.currentItem, ItemStack.EMPTY);
+                    // Make sure the client knows about the changes in the player inventory
+                    player.openContainer.detectAndSendChanges();
+                }
+            } else if (te.getStack(INPUT).isItemEqual(heldItem)) {
+                te.setStack(new ItemStack (heldItem.getItem(),(te.getStack(INPUT).getCount() + heldItem.getCount())), INPUT);
+                player.openContainer.detectAndSendChanges();
+            } else {
+                // There is a stack in the pedestal. In this case we remove it and try to put it in the
+                // players inventory if there is room
+                ItemStack stack = te.getStack(OUTPUT);
+                te.setStack(ItemStack.EMPTY, OUTPUT);
+                if (!player.inventory.addItemStackToInventory(stack)) {
+                    // Not possible. Throw item in the world
+                    EntityItem entityItem = new EntityItem(world, pos.getX(), pos.getY() + 1, pos.getZ(), stack);
+                    world.spawnEntity(entityItem);
+                } else {
+                    player.openContainer.detectAndSendChanges();
+                }
+            }
+        }
 
         return true;
     }

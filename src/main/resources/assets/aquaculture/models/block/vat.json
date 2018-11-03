@@ -1,16 +1,158 @@
 {
-	"forge_marker": 1,
-	"defaults": {
-		"textures": {
-			"all": "aquaculture:blocks/vat_side"
-		}
+	"parent": "minecraft:block/block",
+	"textures": {
+		"particle": "aquaculture:blocks/vat",
+		"texture": "aquaculture:blocks/vat"
 	},
-	"variants": {
-		"normal": {
-			"model": "cube_all"
+	"name": "block_vat",
+	"elements": [
+		{
+			"from": [
+				1,
+				1,
+				1
+			],
+			"to": [
+				14,
+				14,
+				3
+			],
+			"faces": {
+				"up": {
+					"texture": "#texture"
+				},
+				"north": {
+					"texture": "#texture"
+				},
+				"south": {
+					"texture": "#texture"
+				},
+				"west": {
+					"texture": "#texture"
+				},
+				"east": {
+					"texture": "#texture"
+				}
+			}
 		},
-		"inventory": {
-			"model": "cube_all"
+		{
+			"from": [
+				1,
+				1,
+				1
+			],
+			"to": [
+				3,
+				14,
+				14
+			],
+			"faces": {
+				"up": {
+					"texture": "#texture"
+				},
+				"north": {
+					"texture": "#texture"
+				},
+				"south": {
+					"texture": "#texture"
+				},
+				"west": {
+					"texture": "#texture"
+				},
+				"east": {
+					"texture": "#texture"
+				}
+			}
+		},
+		{
+			"from": [
+				1,
+				1,
+				13
+			],
+			"to": [
+				14,
+				15,
+				14
+			],
+			"faces": {
+				"up": {
+					"texture": "#texture"
+				},
+				"north": {
+					"texture": "#texture"
+				},
+				"south": {
+					"texture": "#texture"
+				},
+				"west": {
+					"texture": "#texture"
+				},
+				"east": {
+					"texture": "#texture"
+				}
+			}
+		},
+		{
+			"from": [
+				13,
+				1,
+				1
+			],
+			"to": [
+				14,
+				15,
+				14
+			],
+			"faces": {
+				"up": {
+					"texture": "#texture"
+				},
+				"north": {
+					"texture": "#texture"
+				},
+				"south": {
+					"texture": "#texture"
+				},
+				"west": {
+					"texture": "#texture"
+				},
+				"east": {
+					"texture": "#texture"
+				}
+			}
+		},
+		{
+			"from": [
+				1,
+				0,
+				1
+			],
+			"to": [
+				14,
+				1,
+				14
+			],
+			"faces": {
+				"up": {
+					"texture": "#texture"
+				},
+				"down": {
+					"texture": "#texture"
+				},
+				"north": {
+					"texture": "#texture"
+				},
+				"south": {
+					"texture": "#texture"
+				},
+				"west": {
+					"texture": "#texture"
+				},
+				"east": {
+					"texture": "#texture"
+				}
+			}
 		}
-	}
+	]
 }

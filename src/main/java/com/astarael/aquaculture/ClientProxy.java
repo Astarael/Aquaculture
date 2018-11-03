@@ -1,10 +1,12 @@
 package com.astarael.aquaculture;
 
 import com.astarael.aquaculture.Registry.ModBlocks;
+import com.astarael.aquaculture.Registry.ModFluids;
 import com.astarael.aquaculture.Registry.ModItems;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -25,13 +27,23 @@ public class ClientProxy extends CommonProxy {
 
         super.preInit(e);
 
+        OBJLoader.INSTANCE.addDomain(Aquaculture.MODID);
+
     }
 
-    @SubscribeEvent
+    public void registerModels(ModelRegistryEvent event) {
+        ModBlocks.initModels(event);
+        //ModItems.initModels(event);
+        ModFluids.initModels();
+
+        //registerRenderers();
+    }
+
+    /*@SubscribeEvent
     public static void registerModels (ModelRegistryEvent event) {
 
-        ModBlocks.initModels();
+        ModBlocks.initModels(event);
         ModItems.registerModels();
 
-    }
+    }*/
 }

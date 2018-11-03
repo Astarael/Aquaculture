@@ -58,6 +58,7 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
 
     }
 
+    /*
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
                                     EnumFacing side, float hitX, float hitY, float hitZ) {
         // Only execute on the server
@@ -73,6 +74,7 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
         return true;
 
     }
+    */
 
 
     public FluidTank getWaterTank () {
@@ -111,7 +113,7 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
                 // and are we in daylight
                 long worldTime = world.getWorldTime();
 
-                // TODO: check if this logic is needed
+                // Add brine if we are able
                 if (world != null && !world.isRemote && (worldTime >= 1000) && (worldTime <= 12000)) {
                     blockType = getBlockType();
                     if (waterTank.getFluidAmount() >= WATER_USAGE_RATE && (brineTank.getFluidAmount() < MAX_FLUID_AMOUNT)) {
@@ -120,6 +122,7 @@ public class TileEntityEvaporationTower extends TileFluidHandler implements ITic
                     }
                 }
 
+                // add water if we're in an ocean biome
                 if (waterTank.getFluidAmount() < (MAX_FLUID_AMOUNT - WATER_GEN_RATE)) {
                     if (isOcean(world, pos, world.getBlockState(pos.down()))) {
                         waterTank.modifyFluidStored(WATER_GEN_RATE);
